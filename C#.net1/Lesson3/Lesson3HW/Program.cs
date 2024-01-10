@@ -1,8 +1,7 @@
 ﻿using Lesson3HW;
+using static Lesson3HW.KTsonguyen;
 KTsonguyen service = new KTsonguyen();
-string result1 = service.IntegerCheck(9);
-string result2 = service.IntegerCheck(0);
-string result3 = service.IntegerCheck(-19);
-
+HW hW = new HW();
+hW.InputNumber();
 Console.ReadKey();
 

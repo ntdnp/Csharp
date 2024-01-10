@@ -8,24 +8,35 @@ namespace Lesson3HW
 {
     internal class KTsonguyen
     {
-        public string IntegerCheck(int number)
+        public class HW
         {
-            string result = "";
-            if (number > 0)
+            //Viết chương trình C# để kiểm tra xem một số nguyên nhập từ người dùng là số dương,
+            //số âm, hay bằng 0
+            public void InputNumber()
             {
-                result = "So nguyen duong";
-            }
-            else if (number < 0)
-            {
-                result = "So nguyen am ";
-            }
-            else
-            {
-                result = "So da nhap la 0 ";
-            }
+                Console.WriteLine("Input the number");
+                string value = Console.ReadLine();
+                int number = int.Parse(value);
+                if (number == 0)
+                {
+                    Console.WriteLine(" the input number is 0");
+                
+                }
+               
+                else if (number > 0)
+                {
+                    Console.WriteLine(" the input number is positive number ");
 
-            return result;
+                }
+                 else if (number < 0)
+                {
+                    Console.WriteLine(" the input number is negative number ");
+
+                }
+
+            }
         }
+        
 
 
     }
