@@ -8,38 +8,26 @@ namespace Lesson3HW
 {
     internal class KTsonguyen
     {
-        static void Main()
+        public string IntegerCheck(int number)
         {
-            Console.Write("Nhap mot so nguyen: ");
-            if (int.TryParse(Console.ReadLine(), out int number))
-            {
-                CheckNumberType(number);
-            }
-            else
-            {
-                Console.WriteLine("khong hop le ");
-            }
-
-           
-            Console.ReadKey();
-        }
-
-        static void CheckNumberType(int number)
-        {
+            string result = "";
             if (number > 0)
             {
-                Console.WriteLine("so duong .");
+                result = "So nguyen duong";
             }
             else if (number < 0)
             {
-                Console.WriteLine("So am.");
+                result = "So nguyen am ";
             }
             else
             {
-                Console.WriteLine("So bang 0 .");
+                result = "So da nhap la 0 ";
             }
+
+            return result;
         }
 
+
     }
-   
+
 }
