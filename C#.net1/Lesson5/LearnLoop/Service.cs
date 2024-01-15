@@ -100,20 +100,35 @@ namespace LearnLoop
         //nhập thông tin học sinh : tên và điểm 3 môn văn toán anh (double), điểm trong khaong 0=>10, nếu nhập ko đúng bắt nhập cho đến khi đúng mới thôi  => in ra thông tin học sinh
         public static void InputStudent()
         {
-            Console.WriteLine("input the name");
-            string name = Console.ReadLine();
+            bool isContinue = true;
+            while (isContinue)
+            {
+                Console.WriteLine("input the name");
+                string name = Console.ReadLine();
 
-            Console.WriteLine("Input your math score");
-            ValidateScore(out double mathScore);
+                Console.WriteLine("Input your math score");
+                ValidateScore(out double mathScore);
 
-            Console.WriteLine("Input your literature score");
-            ValidateScore(out double literatureScore);
+                Console.WriteLine("Input your literature score");
+                ValidateScore(out double literatureScore);
 
-            Console.WriteLine("Input your english score");
-            ValidateScore(out double englishScore);
+                Console.WriteLine("Input your english score");
+                ValidateScore(out double englishScore);
 
-            Console.WriteLine($"Name: {name}, math: {mathScore}, literature: {literatureScore}, english: {englishScore} ");
+                Console.WriteLine($"Name: {name}, math: {mathScore}, literature: {literatureScore}, english: {englishScore} ");
+                Console.WriteLine("nhan y de tiep tuc");
+                string value = Console.ReadLine();
+                if (value == "y")
+                {
+                    isContinue = true;
+                }
+                else
+                {
+                    isContinue = false;
+                }
 
+
+            }
         }
 
         public static void ValidateScore(out double score)
