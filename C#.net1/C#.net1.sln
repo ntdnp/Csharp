@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1B", "Lesson1\lesson1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson4", "Lesson4", "{41331F8B-9986-4F60-BA72-558625151866}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearnSwitchCase", "Lesson4\LearnSwitchCase\LearnSwitchCase.csproj", "{BB59A387-E64D-416F-9BE3-4A78B4B053B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnSwitchCase", "Lesson4\LearnSwitchCase\LearnSwitchCase.csproj", "{BB59A387-E64D-416F-9BE3-4A78B4B053B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lesson4HW", "Lesson4\lesson4HW\lesson4HW.csproj", "{DD94F54A-C833-4595-BC27-0A56FCD45C98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{BB59A387-E64D-416F-9BE3-4A78B4B053B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB59A387-E64D-416F-9BE3-4A78B4B053B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB59A387-E64D-416F-9BE3-4A78B4B053B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD94F54A-C833-4595-BC27-0A56FCD45C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD94F54A-C833-4595-BC27-0A56FCD45C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD94F54A-C833-4595-BC27-0A56FCD45C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD94F54A-C833-4595-BC27-0A56FCD45C98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{A0F1DFE5-559B-4202-8243-253808EE1A38} = {3172CAD9-3E37-4132-989C-614932D36877}
 		{CC3AA688-A974-4E48-A243-8B234C4441E7} = {3172CAD9-3E37-4132-989C-614932D36877}
 		{BB59A387-E64D-416F-9BE3-4A78B4B053B4} = {41331F8B-9986-4F60-BA72-558625151866}
+		{DD94F54A-C833-4595-BC27-0A56FCD45C98} = {41331F8B-9986-4F60-BA72-558625151866}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89672822-B918-473E-B31C-9F20571F1604}
