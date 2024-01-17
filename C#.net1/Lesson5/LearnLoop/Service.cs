@@ -142,6 +142,16 @@ namespace LearnLoop
                 check = double.TryParse(Console.ReadLine(), out score) && score >= 0 && score <= 10;
             }
         }
+        public static void LearnDoWhile()
+        {
+            int i = 5;
+            do
+            {
+                Console.WriteLine(i);
+            }
+            while (i<5);
+
+        }
 
     }
 }
