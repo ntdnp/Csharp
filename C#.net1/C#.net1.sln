@@ -5,9 +5,13 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson1", "Lesson1", "{3172CAD9-3E37-4132-989C-614932D36877}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson1A", "Lesson1\Lesson1A\Lesson1A.csproj", "{A0F1DFE5-559B-4202-8243-253808EE1A38}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1A", "Lesson1\Lesson1A\Lesson1A.csproj", "{A0F1DFE5-559B-4202-8243-253808EE1A38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson1B", "Lesson1\lesson1B\Lesson1B.csproj", "{CC3AA688-A974-4E48-A243-8B234C4441E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1B", "Lesson1\lesson1B\Lesson1B.csproj", "{CC3AA688-A974-4E48-A243-8B234C4441E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson6HW", "Lesson6HW", "{14AFA6D3-6F4E-465B-B35F-DEA2A1176DD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson6HW", "Lesson6HW\Lesson6HW\Lesson6HW.csproj", "{2D992742-8C15-4AC9-8838-BF6B2913FB26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,10 @@ Global
 		{CC3AA688-A974-4E48-A243-8B234C4441E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC3AA688-A974-4E48-A243-8B234C4441E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC3AA688-A974-4E48-A243-8B234C4441E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D992742-8C15-4AC9-8838-BF6B2913FB26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D992742-8C15-4AC9-8838-BF6B2913FB26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D992742-8C15-4AC9-8838-BF6B2913FB26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D992742-8C15-4AC9-8838-BF6B2913FB26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{A0F1DFE5-559B-4202-8243-253808EE1A38} = {3172CAD9-3E37-4132-989C-614932D36877}
 		{CC3AA688-A974-4E48-A243-8B234C4441E7} = {3172CAD9-3E37-4132-989C-614932D36877}
+		{2D992742-8C15-4AC9-8838-BF6B2913FB26} = {14AFA6D3-6F4E-465B-B35F-DEA2A1176DD8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {89672822-B918-473E-B31C-9F20571F1604}
