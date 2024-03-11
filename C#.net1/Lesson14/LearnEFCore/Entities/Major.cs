@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace LearnEFCore.Entities
 {
-    [Table("Products")]
+    [Table("Major")]
 
     public class Major : BaseEntity
     {
-        [Column(TypeName = "nvachar(1000)")]
+        [Column(TypeName = "nvarchar(1000)")]
         public string MajorName { get; set; }
         public List<Student> Students {get; set;}
     }

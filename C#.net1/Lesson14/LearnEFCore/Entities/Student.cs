@@ -10,14 +10,15 @@ namespace LearnEFCore.Entities
     [Table("Students")]
     public class Student : BaseEntity
     {
-        [Column(TypeName = "nvachar(1000)")]
+        [Column(TypeName = "nvarchar(1000)")]
         public string StudentName { get; set; }
        
         public int Age { get; set; }
-        [Column(TypeName = "nvachar(1000)")]
+        [Column(TypeName = "nvarchar(1000)")]
 
         public string Address { get; set; }
         public Guid MajorId { get; set; }
+
         [ForeignKey(nameof(MajorId))]
         public Major Major { get; set; }
 
