@@ -10,6 +10,7 @@ namespace LearnEFCore.Majors
     public interface IMajorService 
     {
         void CreateMajor(CreateMajorViewModel model);
+        void UpdateMajor(UpdateMajorViewModel model);
         void DeletelMajor(Guid majorId);
         List<MajorViewModel> GetAllMajor();
         MajorViewModel GetMajorById(Guid majorId);
@@ -90,6 +91,29 @@ namespace LearnEFCore.Majors
                 return majorViewModel;
             
             }
+        }
+
+        public void UpdateMajor(UpdateMajorViewModel model)
+        {
+            var major = _context.Majors.FirstOrDefault(s => s.Id == model.Id);
+            if (major == null)
+            {
+                throw new Exception("major is not found");
+            }
+            else
+            {
+                major.MajorName= model.MajorName;
+                major.Status = model.Status;
+                _context.Majors.Update(major);
+                _context.SaveChanges();
+
+
+            }
+        }
+
+        internal void DeletelMajor(MajorViewModel majorToDelete)
+        {
+            throw new NotImplementedException();
         }
     }
 
