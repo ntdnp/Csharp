@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LearnEFCore.Studens
+namespace FirstDemo.Studens
 {
     public class StudentViewModel
     {

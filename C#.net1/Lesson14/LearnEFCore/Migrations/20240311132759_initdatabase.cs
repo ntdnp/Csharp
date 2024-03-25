@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace LearnEFCore.Migrations
+namespace FirstDemo.Migrations
 {
     /// <inheritdoc />
     public partial class initdatabase : Migration

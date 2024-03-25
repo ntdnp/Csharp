@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LearnEFCore.Majors
+namespace FirstDemo.Majors
 {
     public class MajorManager
     {

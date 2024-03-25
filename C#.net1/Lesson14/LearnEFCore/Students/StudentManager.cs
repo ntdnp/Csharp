@@ -1,12 +1,12 @@
-﻿using LearnEFCore.Majors;
-using LearnEFCore.Studens;
+﻿using FirstDemo.Majors;
+using FirstDemo.Studens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LearnEFCore.Students
+namespace FirstDemo.Students
 {
 
     public class StudentManager

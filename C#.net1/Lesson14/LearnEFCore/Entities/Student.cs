@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LearnEFCore.Entities
+namespace FirstDemo.Entities
 {
     [Table("Students")]
     public class Student : BaseEntity
