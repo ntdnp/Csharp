@@ -1,8 +1,31 @@
-﻿@{
+﻿@using FirstDemo.Majors;
+@{
     ViewData["Title"] = "Home Page";
 }
-
+@model List<MajorViewModel>
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <a class="btn btn-success" href="/Home/Create">Create major</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Major Name</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.MajorName</td>
+                    <td><a class="btn btn-danger" href="/Home/Update?majorId=@item.Id">Update</a></td>
+                    <td><a class="btn btn-danger" href="/Home/Delete">Delete</a></td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
 </div>

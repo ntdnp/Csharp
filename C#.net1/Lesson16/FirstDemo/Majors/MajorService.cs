@@ -85,7 +85,8 @@ namespace FirstDemo.Majors
                 {
                     Id = major.Id,
                     MajorName = major.MajorName,
-                    StatusName = major.Status.ToString()
+                    StatusName = major.Status.ToString(),
+                    Status = major.Status,
 
                 };
                 return majorViewModel;
@@ -102,14 +103,13 @@ namespace FirstDemo.Majors
             }
             else
             {
-                major.MajorName= model.MajorName;
+                major.MajorName = model.MajorName;
                 major.Status = model.Status;
                 _context.Majors.Update(major);
                 _context.SaveChanges();
-
-
             }
         }
+
 
         internal void DeletelMajor(MajorViewModel majorToDelete)
         {

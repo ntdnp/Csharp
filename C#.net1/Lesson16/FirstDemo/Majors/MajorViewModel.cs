@@ -11,5 +11,6 @@ namespace FirstDemo.Majors
         public Guid Id { get; set; }
         public string MajorName { get; set; }
         public string StatusName { get; set;}
+        public EntityStatus Status { get; set; }
     }
 }

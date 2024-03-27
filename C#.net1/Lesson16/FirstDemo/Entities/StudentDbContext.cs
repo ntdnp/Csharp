@@ -18,13 +18,5 @@ namespace FirstDemo.Entities
         {
         
         }
-
-
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer("Server=NTD-NP\\SQLEXPRESS;Database=StudentDb;User Id=sa;Password=12345;MultipleActiveResultSets=True;TrustServerCertificate=True;");
-        //}
-
     }
 }
