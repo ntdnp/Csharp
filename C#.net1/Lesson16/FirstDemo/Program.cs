@@ -1,5 +1,6 @@
 using FirstDemo.Entities;
 using FirstDemo.Majors;
+using FirstDemo.RepositoriesUOW;
 using Microsoft.AspNetCore.Connections;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<StudentDbContext>
     
     );
 builder.Services.AddScoped<IMajorService, MajorService>();
+builder.Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 

@@ -1,8 +1,8 @@
 using FirstDemo.Majors;
 using FirstDemo.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Storage;
 using System.Diagnostics;
+using System.Net.WebSockets;
 
 namespace FirstDemo.Controllers
 {
@@ -15,12 +15,13 @@ namespace FirstDemo.Controllers
         {
             _logger = logger;
             _majorService = majorService;
+
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var major = _majorService.GetAllMajor();
-            return View(major);
+            var majors = await _majorService.GetAllMajor();
+            return View(majors);
         }
 
         public IActionResult Privacy()
@@ -33,54 +34,44 @@ namespace FirstDemo.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
         public IActionResult Create()
         {
             return View();
         }
-        [HttpPost]
-        public IActionResult Create(CreateMajorViewModel model)
-        {
-            _majorService.CreateMajor(model);
-            return RedirectToAction("Index","Home");
-        }
-        public IActionResult Update(Guid majorId) 
-        {
-            var major = _majorService.GetMajorById(majorId);
-            var select = new List<SelectionItem>
-            {
-                new SelectionItem((int)EntityStatus.Active,EntityStatus.Active.ToString()),
-                new SelectionItem((int)EntityStatus.InActive,EntityStatus.InActive.ToString()),
 
-            };
-            ViewBag.Select= select;
-            return View(major);
-
-        }
         [HttpPost]
-        public IActionResult Update(UpdateMajorViewModel model)
+        public async Task<IActionResult> Create(CreateMajorViewModel model)
         {
-            _majorService.UpdateMajor(model);
+            await _majorService.CreateMajor(model);
             return RedirectToAction("Index", "Home");
         }
-        /// xóa
-        public IActionResult Delete(Guid majorId)
+
+        public async Task<IActionResult> Update(Guid majorId)
         {
-            var major = _majorService.GetMajorById(majorId);
-            if (major == null)
-            {
-                return NotFound(); // Tr? v? NotFound n?u không t?m th?y major
-            }
+            var major = await _majorService.GetMajorById(majorId);
+            var select = new List<SelectionItem> {
+                new SelectionItem( (int) EntityStatus.Active, EntityStatus.Active.ToString()),
+                new SelectionItem( (int) EntityStatus.InActive, EntityStatus.InActive.ToString()),
+            };
+            ViewBag.Select = select;
             return View(major);
         }
 
         [HttpPost]
-        public IActionResult DeleteConfirmed(Guid majorId)
+        public async Task<IActionResult> Update(UpdateMajorViewModel model)
         {
-           
-                _majorService.DeletelMajor(majorId);
-                return RedirectToAction("Index", "Home");
-          
+            await _majorService.UpdateMajor(model);
+            return RedirectToAction("Index", "Home");
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid majorId)
+        {
+            await _majorService.DeleteMajor(majorId);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
+

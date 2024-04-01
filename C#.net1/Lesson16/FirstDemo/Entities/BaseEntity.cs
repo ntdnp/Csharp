@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FirstDemo.Entities
 {
-    public abstract class BaseEntity
+    public abstract class BaseEntity<TKey>
     {
         [Key]
         public Guid Id { get; set; }

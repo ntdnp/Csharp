@@ -10,7 +10,7 @@ namespace FirstDemo.Entities
 {
     [Table("Major")]
 
-    public class Major : BaseEntity
+    public class Major : BaseEntity<Guid>
     {
         [Column(TypeName = "nvarchar(1000)")]
         public string MajorName { get; set; }

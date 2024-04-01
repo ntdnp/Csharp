@@ -1,4 +1,6 @@
 ﻿using FirstDemo.Entities;
+using FirstDemo.RepositoriesUOW;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,96 +9,95 @@ using System.Threading.Tasks;
 
 namespace FirstDemo.Majors
 {
-    public interface IMajorService 
+    public interface IMajorService
     {
-        void CreateMajor(CreateMajorViewModel model);
-        void UpdateMajor(UpdateMajorViewModel model);
-        void DeletelMajor(Guid majorId);
-        List<MajorViewModel> GetAllMajor();
-        MajorViewModel GetMajorById(Guid majorId);
-    
+        Task CreateMajor(CreateMajorViewModel model);
+        Task UpdateMajor(UpdateMajorViewModel model);
+        Task DeleteMajor(Guid majorId);
+        Task<List<MajorViewModel>> GetAllMajor();
+        Task<MajorViewModel?> GetMajorById(Guid majorId);
     }
-    
+
     public class MajorService : IMajorService
     {
-        private readonly StudentDbContext _context;
-        public MajorService(StudentDbContext context) 
-        {
-            _context = context;
-        
-        }
 
-        public void CreateMajor(CreateMajorViewModel model)
+        private readonly IGenericRepository<Major, Guid> _majorRepository;
+        private readonly IUnitOfWork _unitOfWork;
+        public MajorService(
+            IGenericRepository<Major, Guid> majorRepository,
+            IUnitOfWork unitOfWork
+            )
+        {
+
+            _majorRepository = majorRepository;
+            _unitOfWork = unitOfWork;
+        }
+        public async Task CreateMajor(CreateMajorViewModel model)
         {
             var major = new Major
             {
-                Id =Guid.NewGuid(),
-                MajorName=model.MajorName,
+                Id = Guid.NewGuid(),
+                MajorName = model.MajorName,
                 Status = EntityStatus.Active,
                 CreatedDate = DateTime.Now,
-
             };
-            _context.Majors.Add(major);
-            _context.SaveChanges();
 
+            //_context.Majors.Add(major);
+            //_context.SaveChanges();
 
+            _majorRepository.Add(major);
+            await _unitOfWork.SaveChange();
         }
 
-        public void DeletelMajor(Guid majorId)
+        public async Task DeleteMajor(Guid majorId)
         {
-
-            var major = _context.Majors.FirstOrDefault(s => s.Id == majorId);
+            var major = await _majorRepository.FindById(majorId);
             if (major == null)
             {
-                throw new ArgumentException("Major is not found!");
+                throw new Exception("major is not found");
             }
-            _context.Majors.Remove(major);
-            _context.SaveChanges();
+            //_context.Majors.Remove(major);
+            //_context.SaveChanges();
+            _majorRepository.Delete(major);
+            await _unitOfWork.SaveChange();
         }
 
-       
-
-
-        public List<MajorViewModel> GetAllMajor()
+        public async Task<List<MajorViewModel>> GetAllMajor()
         {
-            var majors = _context.Majors;
-            var majorViewModels = majors.Select(s => new MajorViewModel
+            var majors = _majorRepository.FindAll();
+            var majorViewModels = await majors.Select(s => new MajorViewModel
             {
                 Id = s.Id,
                 MajorName = s.MajorName,
                 StatusName = s.Status.ToString()
-
-
-
-            }).ToList();
+            }).ToListAsync();
             return majorViewModels;
         }
 
-        public MajorViewModel GetMajorById(Guid majorId)
+        public async Task<MajorViewModel?> GetMajorById(Guid majorId)
         {
-            var major = _context.Majors.FirstOrDefault(s => s.Id == majorId);
+            //var major = _context.Majors.FirstOrDefault(s => s.Id == majorId);
+            var major = await _majorRepository.FindById(majorId);
             if (major == null)
             {
                 return null;
             }
-            else 
+            else
             {
                 var majorViewModel = new MajorViewModel
                 {
                     Id = major.Id,
                     MajorName = major.MajorName,
                     StatusName = major.Status.ToString(),
-                    Status = major.Status,
-
+                    Status = major.Status
                 };
                 return majorViewModel;
-            
             }
         }
 
-        public void UpdateMajor(UpdateMajorViewModel model)
+        public async Task UpdateMajor(UpdateMajorViewModel model)
         {
-            var major = _context.Majors.FirstOrDefault(s => s.Id == model.Id);
+            var major = await _majorRepository.FindById(model.Id);
             if (major == null)
             {
                 throw new Exception("major is not found");
@@ -105,16 +106,11 @@ namespace FirstDemo.Majors
             {
                 major.MajorName = model.MajorName;
                 major.Status = model.Status;
-                _context.Majors.Update(major);
-                _context.SaveChanges();
+                _majorRepository.Update(major);
+                await _unitOfWork.SaveChange();
             }
         }
-
-
-        internal void DeletelMajor(MajorViewModel majorToDelete)
-        {
-            throw new NotImplementedException();
-        }
     }
-
 }
+
+

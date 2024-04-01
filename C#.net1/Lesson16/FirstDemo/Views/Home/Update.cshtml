@@ -27,7 +27,16 @@
                 <select name="Status">
                     @foreach (var item in select)
                     {
-                        <option value="@item.Value">@item.DisplayName</option>
+                        @if ((int)Model.Status == item.Value)
+                        {
+                            <option selected value="@item.Value">@item.DisplayName</option>
+
+                        }
+                        else
+                        {
+                            <option value="@item.Value">@item.DisplayName</option>
+                        }
+                        
                     }
                 </select>
             </div>

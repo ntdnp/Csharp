@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace FirstDemo.Entities
 {
     [Table("Students")]
-    public class Student : BaseEntity
+    public class Student : BaseEntity<Guid>
     {
         [Column(TypeName = "nvarchar(1000)")]
         public string StudentName { get; set; }
