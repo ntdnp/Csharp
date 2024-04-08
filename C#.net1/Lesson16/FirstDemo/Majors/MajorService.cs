@@ -42,9 +42,6 @@ namespace FirstDemo.Majors
                 CreatedDate = DateTime.Now,
             };
 
-            //_context.Majors.Add(major);
-            //_context.SaveChanges();
-
             _majorRepository.Add(major);
             await _unitOfWork.SaveChange();
         }

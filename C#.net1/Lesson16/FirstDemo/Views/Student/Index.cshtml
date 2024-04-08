@@ -1,0 +1,15 @@
+﻿﻿@using FirstDemo.Students;
+@model PageResult<StudentViewModel>
+@{
+
+}
+@foreach (var item in Model.Data)
+{
+    <p>@item.StudentName - @item.MajorName - @item.Address - @item.Age</p>
+}
+
+@for (int i = 1; i <= Model.TotalPage; i++)
+{
+    <a href="/Student/Index?pageIndex=@i">@i</a>
+}
+
