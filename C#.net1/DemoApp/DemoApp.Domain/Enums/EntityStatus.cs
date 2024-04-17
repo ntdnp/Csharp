@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DemoApp.Domain.Enums
 {
-	public enum EntityStatus
-	{
-		Active = 1,
-		Inactive = 2,
-	}
+    public enum EntityStatus
+    {
+        Active = 1,
+        Inactive = 2,
+    }
 }

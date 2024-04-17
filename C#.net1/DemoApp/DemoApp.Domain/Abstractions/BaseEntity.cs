@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace DemoApp.Domain.Abstractions
 {
-	public abstract class BaseEntity<Tkey>
-	{
-		[Key]
-		public Tkey Id { get; set; }
-		public DateTime CreatedDate { get; set; }
-		public EntityStatus Status { get; set; }
+    public abstract class BaseEntity <TKey>
+    {
+        [Key]
+        public TKey Id { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public EntityStatus Status { get; set; }
 
-	}
+    }
 }

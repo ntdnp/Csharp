@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DemoApp.Domain.Abstractions
 {
-	public interface IUnitiOfWork
-	{
-		Task SaveChangeAsunc();
-		Task<IDbContextTransaction> BeginTransactionAsync();
-	}
+    public interface IUnitOfWork
+    {
+        Task SaveChangeAsync();
+        Task<IDbContextTransaction> BeginTransactionAsync();
+    }
 }

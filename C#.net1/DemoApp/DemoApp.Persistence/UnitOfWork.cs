@@ -1,14 +1,11 @@
 ﻿using DemoApp.Domain.Abstractions;
-using Microsoft.EntityFrameworkCore.Storage;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DemoApp.Persistence;
 
-namespace DemoApp.Persistence
+using Microsoft.EntityFrameworkCore.Storage;
+
+namespace Persistence
 {
-	public class UnitOfWork : IUnitiOfWork
+	public class UnitOfWork : IUnitOfWork
 	{
 		private readonly ApplicationDbContext _context;
 		public UnitOfWork(ApplicationDbContext context)
@@ -21,17 +18,10 @@ namespace DemoApp.Persistence
 			throw new NotImplementedException();
 		}
 
-		public Task SaveChangeAsunc()
-		{
-			throw new NotImplementedException();
-		}
-
 		public async Task SaveChangeAsync()
 		{
 			await _context.SaveChangesAsync();
 		}
-
-
 
 	}
 }
