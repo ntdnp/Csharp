@@ -1,6 +1,6 @@
 ﻿using DemoApp.Domain.Abstractions;
 using DemoApp.Persistence;
-
+using DemoApp.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Persistence
